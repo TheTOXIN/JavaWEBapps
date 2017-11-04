@@ -10,6 +10,14 @@ import java.util.Properties;
 public class DAO {
     private static Properties prop = new Properties();
 
+    static {
+        try {
+            prop.load(new FileInputStream("src/com/webapp/main/resources/config.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         for (Post p : getPosts())
             System.out.println(p.toString());

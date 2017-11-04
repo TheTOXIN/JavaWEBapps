@@ -5,9 +5,6 @@ import java.io.OutputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 
-/**
- * Created by yar 09.09.2009
- */
 public class HttpServer {
 
     public static void main(String[] args) throws Throwable {

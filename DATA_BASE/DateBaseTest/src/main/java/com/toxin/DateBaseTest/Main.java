@@ -2,7 +2,6 @@ package com.toxin.DateBaseTest;
 
 import java.io.*;
 import java.sql.*;
-import java.util.Scanner;
 
 public class Main {
     private static final String URL = "jdbc:mysql://localhost:3306/testdb?" +
