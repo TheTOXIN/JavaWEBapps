@@ -6,6 +6,7 @@ import com.toxin.dao.UserDaoImpl;
 import com.toxin.service.UserService;
 import com.toxin.service.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -13,6 +14,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 @Configuration
+@ComponentScan(basePackages = "com.toxin.service")
 public class SpringConfig {
     @Bean
     public TestBean getTestBean() {
@@ -37,10 +39,5 @@ public class SpringConfig {
     @Bean
     public UserDao getUserDao() {
         return new UserDaoImpl(getJdbcTemplate());
-    }
-
-    @Bean
-    public UserService getUserService() {
-        return new UserServiceImpl(getUserDao());
     }
 }
