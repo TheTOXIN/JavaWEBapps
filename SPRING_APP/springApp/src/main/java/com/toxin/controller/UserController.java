@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @GetMapping("/add")
-    public String createUsers() {
+    public String createUser() {
         return "createUsers";
     }
 
