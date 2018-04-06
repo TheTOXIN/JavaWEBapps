@@ -21,6 +21,15 @@ JavaEE application with JSP and Servelts
 - **POOR_WEV_APP**
 
 JavaEE application build without IDE
+- **SIMPLE_HTTP_SERVER**
+
+Example simple HTTP server, worked on sockets
+- **SPRING_ANGULAR**
+
+Full stack apps on SpringMVC && Angular-JS
+- **SPRING_BOOT**
+
+Starting init web on SpringBoot
 - **SPRING_MVC**
 
 Example application on Spring-MVC
