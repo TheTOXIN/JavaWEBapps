@@ -9,11 +9,35 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
+<style>
+    #posts {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #posts td, #posts th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #posts tr:nth-child(even){background-color: #f2f2f2;}
+
+    #posts tr:hover {background-color: #ddd;}
+
+    #posts th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
     <head>
         <title>POSTS</title>
     </head>
     <body>
-        <table>
+        <table id="posts">
             <c:forEach items = "${requestScope.posts}" var = "post">
                 <tr>
                     <td>${post.id}</td>
@@ -28,10 +52,10 @@
             <form action="/add" method="POST">
                 <tr>
                     <td colspan="2">
-                        <input name="txt" type="text">
+                        <input name="txt" type="text" style="width: 100%;">
                     </td>
                     <td>
-                        <input text="ADD" type="submit">
+                        <input type="image" src="res/add.png">
                     </td>
                 </tr>
             </form>
