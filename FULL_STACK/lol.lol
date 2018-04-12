@@ -1,1 +1,0 @@
-http://javastudy.ru/spring-mvc/review-mvc-angularjs-bootstrap-html5/
