@@ -22,7 +22,7 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item">
-                    <div class="fill" style="background-image:url('${pageContext.request.contextPath}/resources/images/indexImage1.png');"></div>
+                    <div class="fill" style="background-image:url('${pageContext.request.contextPath}/resources/images/indexImage1.png'); background-size: 300px;"></div>
                     <div class="carousel-caption">
                         <h2>1</h2>
                     </div>
