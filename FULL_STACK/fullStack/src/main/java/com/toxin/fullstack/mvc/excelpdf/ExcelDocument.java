@@ -1,5 +1,6 @@
 package com.toxin.fullstack.mvc.excelpdf;
 
+import com.toxin.fullstack.mvc.entity.Cat;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;

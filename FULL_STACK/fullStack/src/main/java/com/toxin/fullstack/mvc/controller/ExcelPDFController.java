@@ -1,5 +1,6 @@
-package com.toxin.fullstack.mvc.excelpdf;
+package com.toxin.fullstack.mvc.controller;
 
+import com.toxin.fullstack.mvc.entity.Cat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

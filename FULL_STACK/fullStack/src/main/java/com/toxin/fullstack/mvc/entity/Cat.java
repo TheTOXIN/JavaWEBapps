@@ -1,4 +1,4 @@
-package com.toxin.fullstack.mvc.excelpdf;
+package com.toxin.fullstack.mvc.entity;
 
 public class Cat {
 
