@@ -10,51 +10,54 @@
 	   http://www.springframework.org/schema/context
 	   http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--
-        context:component-scan This tag will scan
-        @Component, @Repository, @Service, @Controller
-        and also resolves @Autowired and @Qualifier
-    -->
+    <!-- context:component-scan This tag will scan @Component, @Repository, @Service, @Controller
+         and also resolves @Autowired and @Qualifier -->
     <context:component-scan base-package="com.toxin.fullstack.mvc" />
-
     <!--
         mvc:annotation-driven configures Spring MVC annotations
-        Support for validating @Controller
-        inputs with @Valid, if a JSR-303 Provider is present on the classpath.
-        HttpMessageConverter support for @RequestBody
-        method parameters and @ResponseBody method return values
+        Support for validating @Controller inputs with @Valid, if a JSR-303 Provider is present on the classpath.
+        HttpMessageConverter support for @RequestBody method parameters and @ResponseBody method return values
         from @RequestMapping or @ExceptionHandler methods.
      -->
     <mvc:annotation-driven/>
 
+    <!--org.springframework.web.servlet.PageNotFound.noHandlerFound No mapping found
+    for HTTP request with URI [/jdbcUpdate/user/username/user@javastudy.ru/enabled/resources/css/bootstrap.css]
+     in DispatcherServlet with name 'dispatcherServlet'-->
+    <!--<mvc:default-servlet-handler/>-->
 
     <!-- ViewResolver bean config for mapping strings to jsp views -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!--
-            Example: a logical view name of
-            'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp'
-        -->
+        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
         <property name="order" value="1" />
         <property name="prefix" value="/WEB-INF/view/" />
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <!--&lt;!&ndash; File Upload bean config&ndash;&gt;-->
-    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
-        <!--&lt;!&ndash; set the maximum file size in bytes &ndash;&gt;-->
-        <!--<property name="maxUploadSize" value="1000000"/>-->
-    <!--</bean>-->
+    <!-- File Upload bean config-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- set the maximum file size in bytes -->
+        <property name="maxUploadSize" value="1000000"/>
+    </bean>
 
-    <!--&lt;!&ndash;Excel and PDF xml view configuration &ndash;&gt;-->
-    <!--<bean class="org.springframework.web.servlet.view.XmlViewResolver">-->
-        <!--<property name="order" value="0" />-->
-        <!--<property name="location">-->
-            <!--<value>/WEB-INF/config/excel-pdf-config.xml</value>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <!--Excel and PDF xml view configuration -->
+    <!--disabling for jUnit test. -->
+    <bean class="org.springframework.web.servlet.view.XmlViewResolver">
+        <property name="order" value="0" />
+        <property name="location" value="/WEB-INF/config/excel-pdf-config.xml"/>
+    </bean>
 
     <mvc:view-controller path="/index.html" view-name="/index"/>
     <mvc:view-controller path="/about.html" view-name="/about/about"/>
     <mvc:view-controller path="/file.html" view-name="/file/file"/>
+    <mvc:view-controller path="/jdbc.html" view-name="/jdbc/jdbc"/>
+
+
+    <!-- Static Resources Configuration (get access to static sources such as CSS and JavaScript files) -->
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <!-- themes can be put in different folder such as
+        <mvc:resources mapping="/resources/**" location="/resources/themeBlue" />
+        <mvc:resources mapping="/resources/**" location="/resources/themeGreen" />
+     -->
 
 </beans>
