@@ -14,7 +14,6 @@ public abstract class AbstractDAO<Entity extends AbstractEntity> {
     private EntityManager manager;
 
     public abstract Class<Entity> getEntity();
-    public abstract void update(Entity entity, Entity old);
 
     public Entity getEntityById(Long id) {
         return manager.find(getEntity(), id);

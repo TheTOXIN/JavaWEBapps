@@ -17,15 +17,6 @@ public class UserDAO extends AbstractDAO<User> {
     }
 
     @Override
-    public void update(User entity, User old) {
-        entity.setSurname(old.getSurname());
-        entity.setName(old.getName());
-        entity.setItems(old.getItems());
-        entity.setBirthday(old.getBirthday());
-        entity.setAvatar(old.getAvatar());
-    }
-
-    @Override
     public Class<User> getEntity() {
         return User.class;
     }

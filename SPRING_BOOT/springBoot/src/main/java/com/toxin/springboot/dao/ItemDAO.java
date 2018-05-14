@@ -17,14 +17,6 @@ public class ItemDAO extends AbstractDAO<Item> {
     }
 
     @Override
-    public void update(Item entity, Item old) {
-        entity.setCount(old.getCount());
-        entity.setName(old.getName());
-        entity.setPicture(old.getPicture());
-        entity.setUser(old.getUser());
-    }
-
-    @Override
     public Class<Item> getEntity() {
         return Item.class;
     }

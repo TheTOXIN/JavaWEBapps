@@ -2,10 +2,10 @@ package com.toxin.springboot.abstraction;
 
 public abstract class AbstractService<Entity extends AbstractEntity> {
 
-    public abstract AbstractDAO getAbstractDAO();
+    public abstract AbstractDAO<Entity> getAbstractDAO();
 
     public Entity getEntityById(Long id) {
-        return (Entity) getAbstractDAO().getEntityById(id);
+        return getAbstractDAO().getEntityById(id);
     }
 
     public void addEntity(Entity entity) {
