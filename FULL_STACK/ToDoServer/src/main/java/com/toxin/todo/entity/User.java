@@ -6,14 +6,11 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
+@Data
 @Entity
-@Table
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
-@AllArgsConstructor
+@Table(name = "users")
 @NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id

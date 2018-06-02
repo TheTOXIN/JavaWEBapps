@@ -6,14 +6,11 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
 
+@Data
 @Entity
-@Table
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
-@AllArgsConstructor
+@Table(name = "tasks")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Task {
 
     @Id
@@ -26,7 +23,7 @@ public class Task {
 
     @Column
     private String description;
-
+    
     @Column(nullable = false)
     private Boolean finished;
 
