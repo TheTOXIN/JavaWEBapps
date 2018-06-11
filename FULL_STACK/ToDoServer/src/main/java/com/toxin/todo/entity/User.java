@@ -1,5 +1,6 @@
 package com.toxin.todo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String login;
 
+    @JsonIgnore
     @Column(nullable = false)
     private String password;
 
