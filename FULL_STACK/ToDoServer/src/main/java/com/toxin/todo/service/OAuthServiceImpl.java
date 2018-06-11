@@ -23,13 +23,13 @@ public class OAuthServiceImpl implements OAuthService {
     public OAuthDtoResponse login(OAuthDtoRequest request) {
         OAuthDtoResponse dto = new OAuthDtoResponse();
 
-        UUID userId = request.isReg() ? reg(request) : log(request);
+        UUID userId = request.isReg() ? up(request) : in(request);
         dto.setUserId(userId);
 
         return dto;
     }
 
-    private UUID reg(OAuthDtoRequest request) {
+    private UUID up(OAuthDtoRequest request) {
         User user = userRepository.findByLogin(request.getLogin());
 
         if (user == null) {
@@ -43,10 +43,10 @@ public class OAuthServiceImpl implements OAuthService {
         return null;
     }
 
-    private UUID log(OAuthDtoRequest request) {
+    private UUID in(OAuthDtoRequest request) {
         User user = userRepository.findByLogin(request.getLogin());
 
-        if (user != null) {
+        if (user != null && user.getPassword().equals(request.getPassword())) {
             return user.getId();
         }
 
