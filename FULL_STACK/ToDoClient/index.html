@@ -1,62 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>LIST</title>
-	<link rel="stylesheet" href="material-icons.css">
-	<link rel="stylesheet" href="main.css">
-	<link rel="stylesheet" href="login.css">
-	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>LIST</title>
+    <link rel="stylesheet" href="material-icons.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 </head>
 <body>
-	<h1>To-Do</h1>
-	<p class="lead">Welcome to my application </p>
+<h1>To-Do</h1>
+<p class="lead">Welcome to my application </p>
 
-	<div class="box" id="description" style="display: none">
-		<h2>TASK</h2>
-		<label>Description:</label>
-		<form>
-			<textarea></textarea>
-			<h4 class="data">04.06.1998</h4>
-			<input type="submit" name="" value="DONE" onclick="hideDescription()()">
-		</form>
-	</div>
+<div class="box" id="description" style="display: none">
+    <h2>TASK</h2>
+    <label>Description:</label>
+    <form>
+        <textarea></textarea>
+        <h4 class="data">04.06.1998</h4>
+        <input type="submit" name="" value="DONE" onclick="hideDescription()()">
+    </form>
+</div>
 
-	<div class="box" id="login">
-		<h2 id="sign">SIGN IN</h2>
-		<form>
-			<div class="inputBox">
-				<input type="text" name="" required="">
-				<label>Login</label>
-			</div>
-			<div class="inputBox">
-				<input type="password" name="" required="">
-				<label>Password</label>
-			</div>
-			<div class="reg">
-				<input type="checkbox" name="" onclick="changeHeader()">
-				<span> NEW ToDo </span>
-			</div>
-			<input type="submit" name="" value="JOIN" onclick="login()">
-		</form>
-	</div>
+<div class="box" id="login">
+    <h2 id="sign">SIGN IN</h2>
+    <form>
+        <div class="inputBox">
+            <input type="text" name="" required="">
+            <label>Login</label>
+        </div>
+        <div class="inputBox">
+            <input type="password" name="" required="">
+            <label>Password</label>
+        </div>
+        <div class="reg">
+            <input type="checkbox" name="" onclick="changeHeader()">
+            <span> NEW ToDo </span>
+        </div>
+        <input type="submit" name="" value="JOIN" onclick="login()">
+    </form>
+</div>
 
-	<div id="root">
-		<div class="container">
-			<h3>Add - ToDo</h3>
-			<input id="new-task" type="text">
-			<i id="add" class="material-icons">check</i>
-			<h3>Your - List</h3>
-			<ul id ="unfinished-tasks">
-				<!-- ListItems -->
-			</ul>
-			<h3>Finished - ToDo</h3>
-			<ul id ="finished-tasks">
-				<!-- ListItems -->	
-			</ul>
-		</div>
-	</div>
+<div id="root">
+    <div class="container">
+        <h3>Add - ToDo</h3>
+        <input id="new-task" type="text">
+        <i id="add" class="material-icons">check</i>
+        <h3>Your - List</h3>
+        <ul id="unfinished-tasks">
+            <!-- ListItems -->
+        </ul>
+        <h3>Finished - ToDo</h3>
+        <ul id="finished-tasks">
+            <!-- ListItems -->
+        </ul>
+    </div>
+</div>
 
-	<script src="index.js"></script>
+<!--<table id="under">-->
+    <!--<td class="gh">-->
+        <!--Project on GitHub-->
+        <!--<a href="https://github.com/TheTOXIN/EXAMPLES_WEB_APPS/tree/master/FULL_STACK">-->
+            <!--<img class="logo" src="res/gh_logo.png">-->
+        <!--</a>-->
+    <!--</td>-->
+    <!--<td class="vk">-->
+        <!--<a href="https://vk.com/the_toxin">-->
+            <!--<img class="logo" src="res/vk_logo.png">-->
+        <!--</a>-->
+        <!--TheTOXIN ©2018-->
+    <!--</td>-->
+<!--</table>-->
+
+<div id="under">
+    <span class="gh">
+        Project on GitHub
+        <a href="https://github.com/TheTOXIN/EXAMPLES_WEB_APPS/tree/master/FULL_STACK">
+            <img class="logo" src="res/gh_logo.png">
+        </a>
+    </span>
+    <span class="vk">
+        <a href="https://vk.com/the_toxin">
+            <img class="logo" src="res/vk_logo.png">
+        </a>
+        TheTOXIN ©2018
+    </span>
+</div>
+
+<script src="index.js"></script>
 </body>
 </html>
