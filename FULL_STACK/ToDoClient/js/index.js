@@ -341,6 +341,20 @@ function saveToken(token) {
     document.cookie = "todo=" + token;
 }
 
+var oldScrollY = 0;
+window.onscroll = function() {
+    var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+    var dY = scrolled - oldScrollY;
+
+    if ( dY > 0 ){
+        $("#under").slideUp(500);
+    } else {
+        $("#under").slideDown(500);
+    }
+
+    oldScrollY = scrolled;
+};
+
 function main() {
     showLogin();
 }
