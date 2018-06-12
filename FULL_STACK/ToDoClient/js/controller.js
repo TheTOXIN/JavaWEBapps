@@ -6,6 +6,8 @@ var tasks = [];
 app.controller('ToDoCtrl', function ($scope, $http) {
 
     $scope.loginUser = function () {
+        showLoader();
+
         var request = processLogin();
 
         if (request === null) return;
@@ -19,9 +21,12 @@ app.controller('ToDoCtrl', function ($scope, $http) {
                     $scope.getUser(token);
                     $scope.toDoUser(token);
 
+                    saveToken(token);
                     hideLogin();
                 }
             });
+
+        hideLoader();
     };
 
     $scope.toDoUser = function (token) {
@@ -51,29 +56,45 @@ app.controller('ToDoCtrl', function ($scope, $http) {
     };
 
     $scope.addTask = function () {
+        showLoader();
         var task = createTask();
         if (task === null) return;
         $http.post("https://to-do-server.herokuapp.com/rest/tasks/", task)
             .then(function (response) {
                 tasks.push(response.data);
+                showNotification("ADD", false);
+            })
+            .catch(function () {
+                showNotification("ERROR", true);
             });
+        hideLoader();
     };
 
     $scope.removeTask = function (task) {
+        showLoader();
         $http.delete(task._links.self.href)
-            .then(function (response) {
-                console.log(response.data);
+            .then(function () {
+                showNotification("DELETE", false);
+            })
+            .catch(function () {
+                showNotification("ERROR", true);
             });
+        hideLoader();
     };
 
     $scope.updateTask = function (task) {
+        showLoader();
         $http.patch(task._links.self.href, {
             title: task.title,
             finished: task.finished,
             description: task.description,
             date: task.date,
-        }).then(function (response) {
-            console.log(response.data);
+        }).then(function () {
+            showNotification("UPDATE", false);
+        })
+        .catch(function () {
+            showNotification("ERROR", true);
         });
-    }
+        hideLoader();
+    };
 });

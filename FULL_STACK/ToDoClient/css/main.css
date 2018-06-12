@@ -11,18 +11,21 @@ h1 {
 }
 
 .lead {
-	color: white;
-	margin: 0;
-	font-size: 24px;
-	text-align: center;
-	font-family: var(--righteous-font);
+    position: absolute;
+    color: white;
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+    font-family: var(--righteous-font);
+    top: 85px;
+    width: 100%;
 }
 
 body {
     color: white;
     font-family: sans-serif;   
     background-blend-mode: multiply;
-    background-image: url(res/background.jpg);
+    background-image: url(../res/background.png);
     background-position: top;
     background-position: center;
     background-attachment: fixed;
@@ -37,7 +40,7 @@ body {
     border-radius: 15px;
     padding: 20px 16px 30px;
     background-color: rgba(0, 0, 0, 0.7);
-    margin: 20px auto 60px;
+    margin: 50px auto 60px;
 }
 
 ul {
@@ -199,10 +202,10 @@ button.checkbox {
 }
 
 #under {
-    position: fixed; /* Фиксированное положение */
-    left: 0; bottom: 0; /* Левый нижний угол */
-    color: #fff; /* Цвет текста */
-    width: 100%; /* Ширина слоя */
+    position: fixed;
+    left: 0; bottom: 0;
+    color: #fff;
+    width: 100%;
     background: rgba(0,0,0, 0.8);
 }
 
@@ -222,4 +225,11 @@ a {
     text-decoration: none;
     top: 13px;
     position: relative;
+}
+
+#loadImg {
+    top: 97%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
 }

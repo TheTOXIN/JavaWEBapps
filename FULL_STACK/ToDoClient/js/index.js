@@ -11,6 +11,9 @@ var passwordInput = document.getElementById("pas-input");
 var registerInput = document.getElementById("reg-input");
 var welcomeMsg = document.getElementById("welcome");
 var boxWindow = document.getElementById("description");
+var notificationWindow = document.getElementById("notification");
+
+const max = 50;
 
 function createNewElement(task, finish) {
     var checkbox = document.createElement('button');
@@ -41,6 +44,8 @@ function createNewElement(task, finish) {
     deleteButton.innerHTML = "<i class='material-icons'>delete</i>";
 
     var listItem = document.createElement('li');
+    listItem.setAttribute("style", "display: none");
+
     listItem.appendChild(checkbox);
     listItem.appendChild(label);
     listItem.appendChild(input);
@@ -52,7 +57,7 @@ function createNewElement(task, finish) {
 }
 
 function createTask() {
-    if (inputTask.value) {
+    if (inputTask.value && inputTask.value.length < max) {
         var task = {
             title: inputTask.value,
             finished: false,
@@ -65,6 +70,8 @@ function createTask() {
         inputTask.value = "";
 
         return task;
+    } else {
+        showNotification("INVALID", true);
     }
 
     return null;
@@ -73,9 +80,8 @@ function createTask() {
 function deleteTask() {
     var li = this.parentNode;
     var title = li.querySelector('label').innerText;
-    var ul = li.parentNode;
 
-    ul.removeChild(li);
+    $(li).hide(1000);
 
     for (var i = 0; i < tasks.length; i++) {
         if (tasks[i].title === title) {
@@ -93,7 +99,13 @@ function editTask() {
     var title = label.innerText;
 
     if (containsClass) {
+        if (input.value.length === 0 || input.value.length > max) {
+            showNotification("INVALID", true);
+            return;
+        }
+
         label.innerText = input.value;
+
         editButton.className = "material-icons edit";
         editButton.innerHTML = "<i class='material-icons'>edit</i>";
 
@@ -157,7 +169,7 @@ function finishedTask() {
 
     if (!containsClass) {
         checkbox.className = "material-icons checkbox";
-        checkbox.innerHTML = "<i class='material-icons'>check_box</i>"
+        checkbox.innerHTML = "<i class='material-icons'>check_box</i>";
 
         finishedTasks.appendChild(li);
         bindTaskEvents(li, unfinishedTask);
@@ -220,6 +232,8 @@ function load(task) {
         unfinishedTasks.appendChild(listItem);
         bindTaskEvents(listItem, finishedTask)
     }
+
+    $(listItem).show(1000);
 }
 
 function processLogin() {
@@ -234,15 +248,21 @@ function processLogin() {
 }
 
 function showLogin() {
-    loginWindow.style.display = "block";
+    loginWindow.style.display = "none";
     rootWindow.style.display = "none";
     underWindow.style.display = "none";
+
+    $(loginWindow).fadeIn(1000);
 }
 
 function hideLogin() {
-    loginWindow.style.display = "none";
-    rootWindow.style.display = "block";
-    underWindow.style.display = "block";
+    loginWindow.style.display = "block";
+    rootWindow.style.display = "none";
+    underWindow.style.display = "none";
+
+    $(loginWindow).fadeOut(500);
+    $(rootWindow).fadeIn(500);
+    $(underWindow).slideDown(500);
 }
 
 function showError() {
@@ -250,6 +270,22 @@ function showError() {
     setTimeout(function () {
         $("#message").hide('slow');
     }, 3000);
+}
+
+function showNotification(msg, wrn) {
+    var p = notificationWindow.querySelector("p");
+
+    p.innerText = msg;
+    if (wrn) {
+        p.style.color = 'red';
+    } else {
+        p.style.color = 'green';
+    }
+
+    $(notificationWindow).slideDown('slow');
+    setTimeout(function () {
+        $(notificationWindow).slideUp('slow');
+    }, 2000);
 }
 
 function changeHeader() {
@@ -260,22 +296,53 @@ function changeHeader() {
     }
 }
 
+var msgs = [
+  "Hello ",
+  "Hi ",
+  "Welcome ",
+  "Your so cute ",
+  "Very nice ",
+  "Amazing day! ",
+  "Go ToDo ",
+  "You need more ToDo ",
+  "All right ",
+  "I'm glad to see you ",
+  "How are you? ",
+  "Omg, it's you ",
+  "Yeeeah ",
+  "Please visit my GtiHub ",
+  "How many Todo ",
+  "JUST DO IT "
+];
+
 function showUser(user) {
-    welcomeMsg.innerText = "Welcome " + user.login;
+    $(welcomeMsg).slideUp(500);
+    setTimeout(function () {
+        welcomeMsg.innerText = msgs[Math.floor(Math.random() * msgs.length)] + user.login;
+        $(welcomeMsg).slideDown(500);
+    }, 500);
 }
 
 function showTask(task) {
     load(task);
 }
 
-function main() {
-    var data = JSON.parse(localStorage.getItem('todo'));
+function showLoader() {
+    $("#loadImg").fadeIn(1000);
+}
 
-    if (data === null) {
-        showLogin();
-    } else {
-        hideLogin();
-    }
+function hideLoader() {
+    $("#loadImg").fadeOut(1000);
+}
+
+function saveToken(token) {
+    var date = new Date();
+    date.setDate(date.getDate() + 1);
+    document.cookie = "todo=" + token;
+}
+
+function main() {
+    showLogin();
 }
 
 main();
