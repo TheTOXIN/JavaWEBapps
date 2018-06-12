@@ -7,7 +7,7 @@ Web apps on the different Java technologies
 
 - **FULL_STACK**
 
-Full stack apps on Spring DATA REST && Angular JS, also Hibernet and JQuery
+Full stack apps on Spring DATA REST && Angular JS, also Hibernet and JQuery, Tomcat and NodeJS
 
 - **APP_CRUD**
 
