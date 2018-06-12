@@ -114,3 +114,9 @@ textarea {
 	padding-bottom: 100px;
 	border-bottom-color: #03a9f4;
 }
+
+#message {
+	display:none;
+	color: red;
+	text-align: center;
+}

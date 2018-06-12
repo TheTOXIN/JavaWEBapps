@@ -6,6 +6,11 @@ var loginWindow = document.getElementById("login");
 var rootWindow = document.getElementById("root");
 var descriptionWindow = document.getElementById("description");
 var underWindow = document.getElementById("under");
+var signHeader = document.getElementById("sign");
+var loginInput = document.getElementById("log-input");
+var passwordInput = document.getElementById("pas-input");
+var registrInput = document.getElementById("reg-input");
+var welcomeMsg = document.getElementById("welcome");
 
 function createNewElement(task, finish) {
     var checkbox = document.createElement('button');
@@ -158,22 +163,41 @@ function save() {
     }));
 }
 
-function load() {
-    for (var i = 0; i < data.unfinishedTasks.length; i++) {
-        var listItem = createNewElement(data.unfinishedTasks[i], false);
-        unfinishedTasks.appendChild(listItem);
-        bindTaskEvents(listItem, finishTask);
-    }
+function load(task) {
+    // for (var i = 0; i < data.unfinishedTasks.length; i++) {
+    //     var listItem = createNewElement(data.unfinishedTasks[i], false);
+    //     unfinishedTasks.appendChild(listItem);
+    //     bindTaskEvents(listItem, finishTask);
+    // }
+    //
+    // for (var i = 0; i < data.finishedTasks.length; i++) {
+    //     var listItem = createNewElement(data.finishedTasks[i], true);
+    //     finishedTasks.appendChild(listItem);
+    //     bindTaskEvents(listItem, unfinishTask);
+    // }
 
-    for (var i = 0; i < data.finishedTasks.length; i++) {
-        var listItem = createNewElement(data.finishedTasks[i], true);
+    var listItem = createNewElement(task.title, task.finished);
+
+    if (task.finished) {
         finishedTasks.appendChild(listItem);
-        bindTaskEvents(listItem, unfinishTask);
+        bindTaskEvents(listItem, finishTask)
+    } else  {
+        unfinishedTasks.appendChild(listItem);
+        bindTaskEvents(listItem, unfinishTask)
     }
 }
 
-function login() {
-    hideLogin();
+function processLogin() {
+    if (loginInput.value.length === 0 || passwordInput.value.length === 0)
+        return null;
+
+    var request = {
+        login: loginInput.value,
+        password: passwordInput.value,
+        reg: registrInput.checked
+    };
+    
+    return request;
 }
 
 function showLogin() {
@@ -188,15 +212,27 @@ function hideLogin() {
     underWindow.style.display = "block"
 }
 
-var sign = true;
+function showError  () {
+    $("#message").show('slow');
+    setTimeout(function() {
+        $("#message").hide('slow');
+    }, 3000);
+}
 
 function changeHeader() {
-    sign = !sign;
-    if (sign) {
+    if (registrInput.checked) {
         signHeader.innerText = "SIGN IN";
     } else {
         signHeader.innerText = "SIGN UP";
     }
+}
+
+function showUser(user) {
+    welcomeMsg.innerText = "Welcome " + user.login;
+}
+
+function showTask(task) {
+    load(task)
 }
 
 function main() {
