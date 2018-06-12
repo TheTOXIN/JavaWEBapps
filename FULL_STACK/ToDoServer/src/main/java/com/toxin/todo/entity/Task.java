@@ -31,7 +31,7 @@ public class Task {
     private LocalDate date;
 
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(optional = false)
     private User user;
 
 }

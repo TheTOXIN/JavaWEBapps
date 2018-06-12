@@ -105,13 +105,20 @@ body {
 	font-family: sans-serif;
 }
 
+.box textarea {
+	background: rgba(0,0,0, 0.8);
+	border-radius: 5px;
+	color: #fff;
+}
+
 input:required {
     box-shadow:none;
 }
 
 textarea {
 	width: 100%;
-	padding-bottom: 100px;
+	height: 150px;
+	padding-bottom: 20px;
 	border-bottom-color: #03a9f4;
 }
 

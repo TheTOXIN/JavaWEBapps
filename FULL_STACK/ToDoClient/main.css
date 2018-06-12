@@ -33,11 +33,11 @@ body {
 .container {
     display: block;
     width: 600px;
-    margin: 20px auto 0;
     border: 2px solid #03a9f4;
     border-radius: 15px;
     padding: 20px 16px 30px;
     background-color: rgba(0, 0, 0, 0.7);
+    margin: 20px auto 60px;
 }
 
 ul {
@@ -201,18 +201,21 @@ button.checkbox {
 #under {
     position: fixed; /* Фиксированное положение */
     left: 0; bottom: 0; /* Левый нижний угол */
-    padding: 20px; /* Поля вокруг текста */
     color: #fff; /* Цвет текста */
     width: 100%; /* Ширина слоя */
+    background: rgba(0,0,0, 0.8);
 }
 
 span.gh {
     position: relative;
+    top: -10px;
+    left: 10px;
 }
 
 span.vk {
     position: absolute;
-    right: 5%;
+    top: -10px;
+    right: 10px;
 }
 
 a {
