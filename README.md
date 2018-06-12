@@ -4,6 +4,11 @@ Web apps on the different Java technologies
 
 ##### List of apps:
 
+
+- **FULL_STACK**
+
+Full stack apps on Spring DATA REST && Angular JS, also Hibernet and JQuery, Tomcat and NodeJS
+
 - **APP_CRUD**
 
 Just web-app with CREATE, READ, UPDATE, DELETE operation.
@@ -26,7 +31,7 @@ JavaEE application build without IDE
 Example simple HTTP server, worked on sockets
 - **SPRING_ANGULAR**
 
-Full stack apps on SpringMVC && Angular-JS
+Apps on SpringBOOT && Angular-JS
 - **SPRING_BOOT**
 
 Starting init web on SpringBoot
