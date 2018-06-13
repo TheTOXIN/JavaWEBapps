@@ -10,7 +10,10 @@ app.controller('ToDoCtrl', function ($scope, $http) {
 
         var request = processLogin();
 
-        if (request === null) return;
+        if (request === null)  {
+            hideLoader();
+            return;
+        }
 
         $http.post("https://to-do-server.herokuapp.com/login/", request)
             .then(function (response) {
@@ -24,9 +27,8 @@ app.controller('ToDoCtrl', function ($scope, $http) {
                     saveToken(token);
                     hideLogin();
                 }
+                hideLoader();
             });
-
-        hideLoader();
     };
 
     $scope.toDoUser = function (token) {
@@ -62,24 +64,26 @@ app.controller('ToDoCtrl', function ($scope, $http) {
         $http.post("https://to-do-server.herokuapp.com/rest/tasks/", task)
             .then(function (response) {
                 tasks.push(response.data);
+                hideLoader();
                 showNotification("ADD", false);
             })
             .catch(function () {
+                hideLoader();
                 showNotification("ERROR", true);
             });
-        hideLoader();
     };
 
     $scope.removeTask = function (task) {
         showLoader();
         $http.delete(task._links.self.href)
             .then(function () {
+                hideLoader();
                 showNotification("DELETE", false);
             })
             .catch(function () {
+                hideLoader();
                 showNotification("ERROR", true);
             });
-        hideLoader();
     };
 
     $scope.updateTask = function (task) {
@@ -90,11 +94,12 @@ app.controller('ToDoCtrl', function ($scope, $http) {
             description: task.description,
             date: task.date,
         }).then(function () {
+            hideLoader();
             showNotification("UPDATE", false);
         })
         .catch(function () {
+            hideLoader();
             showNotification("ERROR", true);
         });
-        hideLoader();
     };
 });

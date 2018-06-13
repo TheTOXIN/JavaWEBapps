@@ -2,28 +2,21 @@
 <html>
 <head>
     <meta charset="utf-8">
-<<<<<<< HEAD
     <title>ToDo</title>
-    <link rel="stylesheet" href="css/material-icons.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="icon" href="favicon.ico">
-=======
     <meta name="viewport" content="width=device-width; initial-scale=1.0">
-    <title>LIST</title>
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="css/material-icons.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/window.css">
     <link rel="stylesheet" href="css/mobile.css">
->>>>>>> f99f17dcdc0ddb4224fcfc9e5ee2973ce0a0df52
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <script src="lib/jquery-3.2.1.min.js"></script>
     <script src="lib/angular.min.js"></script>
-    <script src="server.js"></script>
+    <!--<script src="server.js"></script>-->
 </head>
 <body>
 <div id="ToDo" ng-app="ToDoApp" ng-controller="ToDoCtrl">
-    <h1>To-Do REVERT</h1>
+    <h1>To-Do</h1>
     <p class="lead" id="welcome">Welcome to my application </p>
 
     <div class="box" id="description" style="display: none">
@@ -42,11 +35,11 @@
         <form onsubmit="return false;">
             <div class="inputBox">
                 <input id="log-input" type="text" name="" required="">
-                <label>Login</label>
+                <label class="inputText">Login</label>
             </div>
             <div class="inputBox">
                 <input id="pas-input" type="password" name="" required="">
-                <label>Password</label>
+                <label class="inputText">Password</label>
             </div>
             <div class="reg">
                 <input id="reg-input" type="checkbox" name="" onclick="changeHeader()">

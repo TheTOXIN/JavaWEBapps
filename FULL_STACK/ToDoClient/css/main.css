@@ -2,6 +2,10 @@
 	--righteous-font: 'Righteous', cursive;
 }
 
+.inputText {
+    font-size: 32px;
+}
+
 h1 {
 	color: white;
 	margin: 0;
@@ -228,7 +232,7 @@ a {
 }
 
 #loadImg {
-    top: 97%;
+    top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: fixed;
