@@ -1,0 +1,5 @@
+@media screen and (max-width: 720px) {
+    body {
+        background-color: rgba(6, 118, 0, 0.6);
+    }
+}

@@ -253,16 +253,12 @@ function showLogin() {
     underWindow.style.display = "none";
 
     $(loginWindow).fadeIn(1000);
+    $(underWindow).slideDown(500);
 }
 
 function hideLogin() {
-    loginWindow.style.display = "block";
-    rootWindow.style.display = "none";
-    underWindow.style.display = "none";
-
     $(loginWindow).fadeOut(500);
     $(rootWindow).fadeIn(500);
-    $(underWindow).slideDown(500);
 }
 
 function showError() {
