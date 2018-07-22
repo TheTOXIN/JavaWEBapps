@@ -28,6 +28,7 @@ public class HttpServer {
             this.os = s.getOutputStream();
         }
 
+        @Override
         public void run() {
             try {
                 readInputHeaders();
@@ -63,6 +64,7 @@ public class HttpServer {
                 if(s == null || s.trim().length() == 0) {
                     break;
                 }
+                System.out.println(s);
             }
         }
     }
