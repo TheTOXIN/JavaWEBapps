@@ -24,20 +24,6 @@ JavaEE application with JSP and Servelts
 JavaEE application build without IDE
 - **SIMPLE_HTTP_SERVER**
 
-Example simple HTTP server, worked on sockets
-- **SPRING_ANGULAR**
-
-Apps on SpringBOOT && Angular-JS
-- **SPRING_BOOT**
-
-Starting init web on SpringBoot
-- **SPRING_MVC**
-
-Example application on Spring-MVC
-- **SPRING_REST_JPA**
-
-Example of how to use Spring REST and JPA
-- **SPRING_SECURITY**
 
 Spring application with authorization and roles of usersa
 
